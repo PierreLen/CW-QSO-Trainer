@@ -56,7 +56,7 @@
         }
 
         .output {
-            margin-top: 20px;
+            
             text-align: center;
         }
 
@@ -65,7 +65,7 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
+           
         }
     </style>
 </head>
@@ -158,6 +158,7 @@
         };
 
         let verificationData = {};
+	let message = "";
 
         function randomChoice(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
@@ -185,7 +186,8 @@
 	    const speed = document.getElementById("speed").value;
 	    const showCW = document.getElementById("showCWMSG").checked;
 
-            let message = `${userCallsign} de ${otherCallsign}`;
+	    message = "";
+            message = `${userCallsign} de ${otherCallsign}`;
             verificationData = {};
 
             verificationData.call = otherCallsign;
@@ -220,7 +222,6 @@
                 message += ` = rig ${rig}`;
                 verificationData.rig = rig;
             }
-	verificationData.message = message;
             message += " = hw cpy?";
 	    if (showCW){
 		 document.getElementById("cwMessage").innerText = message;
@@ -272,7 +273,7 @@
 	function showCWMSG(){
 		const text = document.getElementById("cwMessage");
 		text.innerText = "";
-		text.innerText = verificationData.message;
+		text.innerText = message;
 
 	}
 
